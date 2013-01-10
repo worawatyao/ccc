@@ -1,0 +1,268 @@
+// Place all the styles related to the App controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$qtyColor: #1C6CB1;
+
+.qty {
+    font-weight: 600;
+    color: $qtyColor;
+}
+
+.productName {
+    font-weight: 400;
+    color: $qtyColor;
+}
+
+.refNo {
+    font-weight: 600;
+    color: $qtyColor;
+}
+
+.tipLabel {
+    color: #777;
+}
+
+.productCode {
+    font-weight: 400;
+    color: #666;
+}
+
+.tip .poNo {
+    font-size: 14px;
+    font-weight: 600;
+    color: black;
+}
+
+.date {
+    color: $qtyColor;
+}
+
+.cellSummary {
+    display: block;
+    position: relative;
+    color: red;
+    font-size: 1em;
+    z-index: 100;
+    opacity: 0.6;
+}
+
+.main-header {
+    background: #091D42;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#091D42', endColorstr='#bac7de'); /* for IE */
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        right top,
+        color-stop(0.27, #091D42),
+        color-stop(0.75, #9AB4CB),
+        color-stop(0.89, #bac7de)
+    );
+    background-image: -moz-linear-gradient(
+        left bottom,
+        #091D42 27%,
+        #9AB4CB 75%,
+        #bac7de 89%
+    );
+
+    .x-panel-body{
+        background: transparent!important;
+    }
+
+    .x-panel-body-default {
+        color: #eee;
+    }
+
+    a {
+        color: #fef;
+        text-decoration: none;
+
+        &:hover {
+            color: #fef;
+            text-decoration: underline;
+        }
+    }
+}
+
+@mixin round-border($size) {
+    -webkit-border-radius: $size;
+    -moz-border-radius: $size;
+    border-radius: $size;
+}
+
+.note-list {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #fafafa;
+    @include round-border(4px);
+
+    .icon {
+        float: left;
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+    }
+
+    @each $typeIcon in qty_update, time_adjust {
+        .#{$typeIcon} {
+            @extend .icon;
+            background-image: url('#{$typeIcon}.png');
+        }
+    }
+
+    h2 {
+        color: #003366;
+        font-size: 11pt;
+    }
+
+    p {
+        padding: 5px;
+    }
+}
+
+.doclist {
+    .wrapper {
+        margin-bottom: 10px;
+        padding: 5px 5px 0 10px;
+        background-color: #fafafa;
+        @include round-border(4px);
+    }
+
+    .topbar { height: 16px; text-align: right; }
+    .bottombar { height: 20px; text-align: right; }
+
+    .delete-btn {
+        background: url("cross.png") no-repeat right top;
+        padding-right: 20px;
+    }
+
+    .download-btn {
+        background: url("download.png") no-repeat right top;
+        padding-right: 20px;
+        padding-bottom: 5px;
+    }
+
+    .icon {
+        float: left;
+        width: 32px;
+        height: 32px;
+        margin-right: 10px;
+    }
+
+    @each $typeIcon in excel, worddoc, pdf, image, unknown {
+        .#{$typeIcon} {
+            @extend .icon;
+            background-image: url('file-#{$typeIcon}.png');
+        }
+    }
+
+    h2 { color: #003366; font-size: 11pt; }
+    p { padding: 5px; }
+    .hidden { display: none }
+}
+
+.file-num {
+    background: url('paper-clip.gif') no-repeat center center;
+}
+.qty-update-icon {
+    background-image: url('qty_update_sm.png');
+}
+
+.schedule_change {
+    color: maroon;
+    font-weight: bold;
+    padding-left: 20px;
+    background-image: url('arrow_ew.png');
+    background-repeat: no-repeat;
+    background-position-y: -2px;
+}
+.qty_receive {
+    color: darkgreen;
+    font-weight: bold;
+    padding-left: 20px;
+    background-image: url('button_ok.png');
+    background-repeat: no-repeat;
+    background-position-y: -2px;
+}
+
+.sch-event-selected {
+    border-width: 2px;
+    border-color: red;
+    border-style: dotted;
+}
+
+.x-grid-row .Critical {
+    color: white;
+    background-color: #FF3333 !important;
+}
+.x-grid-row .Urgent {
+    color: white;
+    background-color: #E77D08 !important;
+}
+.x-grid-row .Follow {
+    color: white;
+    background-color: #1CA5FF !important;
+}
+.x-grid-row .Confirm {
+    color: white;
+    background-color: #55BF3B !important;
+}
+.x-grid-row .Done {
+    color: white;
+    background-color: #135474 !important;
+}
+.x-grid-row .Cancel {
+    color: white;
+    background-color: #C1B79F !important;
+}
+
+.unavailable {
+    color: darkred;
+    background: url('graytexture.png') repeat-x 0 0 !important;
+}
+
+.warn-icon {
+    background-image: url('exclamation.png');
+}
+.accept-icon {
+    background-image: url('accept.png');
+}
+
+.row-start-of-week .x-grid-cell {
+    border-top: black 1px dashed;
+}
+
+.track-wrapper {
+    cursor: pointer;
+    .order {
+        padding: 5px;
+        background: lightblue url(transp-1px.png) repeat-x left top;
+    }
+}
+
+.x-grid-row-selected .track-wrapper .order {
+    @extend .sch-event-selected;
+}
+
+.tracking-list-row .x-grid-cell {
+    border: none !important;
+}
+
+.tracking-list-row .x-grid-cell-inner {
+    padding: 5px 5px 0 5px;
+}
+
+.order-detail-tip {
+    padding: 5px;
+    background-color: #FCFCFC;
+    font-weight: bold;
+}
+
+.bom-grid {
+    .missing td {
+        background-color: #ffcccc;
+    }
+    .ok td {
+        background-color: #ccffcc;
+    }
+}
